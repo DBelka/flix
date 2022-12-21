@@ -1,0 +1,19 @@
+<section class="user">
+  <ul>
+    <% @genres.each do |g| %>
+      <li>
+        <div>
+          <%= g.name %>
+        </div>
+        <aside class="right">
+          <%= link_to "Edit", edit_genre_path(g), class: "btn btn-secondary" %>
+          <%= link_to "Delete", genre_path(g), class: "btn btn-danger", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+        </aside>
+      </li>
+    <% end %>
+  </ul>
+</section>
+
+<section class="admin">
+  <%= link_to "Create New Genre", new_genre_path, class: "btn btn-success" %>
+</section>
